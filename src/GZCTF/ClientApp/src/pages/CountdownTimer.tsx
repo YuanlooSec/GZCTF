@@ -33,6 +33,9 @@ const Countdown = () => {
       targetDate =  new Date(recentGames[0].end??'')
       title = '距离 比赛结束 还有'
     }
+  }else{
+    targetDate = new Date('2024-10-23T15:00:00')
+    title = '距离 比赛结束 还有'
   }
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
