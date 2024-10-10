@@ -25,7 +25,7 @@ const Countdown = () => {
   }
   const isAfter = nowNew > targetDate;
   let isAfterEnd = true
-  if(isAfter){
+  if(isAfter&&recentGames.length != 0){
     if(nowNew>new Date(recentGames[0].end??'')){
       title = '比赛结束'
       isAfterEnd = false
