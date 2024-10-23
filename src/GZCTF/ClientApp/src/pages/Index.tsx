@@ -291,7 +291,7 @@ const Home: FC = () => {
                       />
                       <Title order={3}>{t('common.content.home.recent_games')}</Title>
                     </Group> */}
-                  {isAfter && <div className='button' style={{ backgroundColor: '#ccc' }}>比赛结束</div>}
+                  {isAfter && <div className='button' onClick={() => navigate(`/games/${numId}/challenges`)}>进入比赛</div>}
                   {status == 'Accepted' && !isAfter && isAfterStart && <div className='button' onClick={() => navigate(`/games/${numId}/challenges`)}>进入比赛</div>}
                   {status == 'Accepted' && !isAfter && !isAfterStart && <div className='button' style={{ backgroundColor: '#ccc' }}>即将开赛</div>}
                   {status == 'Unsubmitted' && teams?.length == 0 && !isAfter && <div className='button' style={{ backgroundColor: '#ccc' }}>立即报名</div>}

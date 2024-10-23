@@ -21,19 +21,19 @@ const Countdown = () => {
   let nowNew = new Date();
   let targetDate = new Date('2024-10-10T09:00:00');
   if (recentGames.length != 0) {
-    targetDate = new Date(recentGames[0].start??'')
+    targetDate = new Date(recentGames[0].start ?? '')
   }
   const isAfter = nowNew > targetDate;
   let isAfterEnd = true
-  if(isAfter&&recentGames.length != 0){
-    if(nowNew>new Date(recentGames[0].end??'')){
+  if (isAfter && recentGames.length != 0) {
+    if (nowNew > new Date(recentGames[0].end ?? '')) {
       title = '比赛结束'
       isAfterEnd = false
-    }else{
-      targetDate =  new Date(recentGames[0].end??'')
+    } else {
+      targetDate = new Date(recentGames[0].end ?? '')
       title = '距离 比赛结束 还有'
     }
-  }else{
+  } else {
     targetDate = new Date('2024-10-23T15:00:00')
     title = '距离 比赛结束 还有'
   }
@@ -61,8 +61,10 @@ const Countdown = () => {
   return (
     <Container>
       <div className='Participate-text'>{title}</div>
-      {isAfterEnd&&<Text className='downTimer'>
-       <div className='downTimer-time'> {formatTime(timeLeft.hours)}</div> : <div className='downTimer-time'>{formatTime(timeLeft.minutes)}</div> : <div className='downTimer-time'>{formatTime(timeLeft.seconds)}</div>
+      {isAfterEnd ? <Text className='downTimer'>
+        <div className='downTimer-time'> {formatTime(timeLeft.hours)}</div> : <div className='downTimer-time'>{formatTime(timeLeft.minutes)}</div> : <div className='downTimer-time'>{formatTime(timeLeft.seconds)}</div>
+      </Text> : <Text className='downTimer'>
+        <div className='downTimer-time'> 00</div> : <div className='downTimer-time'>00</div> : <div className='downTimer-time'>00</div>
       </Text>}
     </Container>
   );
